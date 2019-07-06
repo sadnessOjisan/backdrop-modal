@@ -1,0 +1,14 @@
+#background {
+  height: 100vh;
+  width: 100vw;
+  background-color: azure;
+  position: relative;
+}
+
+#contents {
+  background-color: red;
+  position: absolute;
+  bottom: 0;
+  width: 80%;
+  height: 70%;
+}

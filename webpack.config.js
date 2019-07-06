@@ -53,6 +53,9 @@ module.exports = {
       filename: "index.html",
     }),
     defineEnv,
+    new webpack.ProvidePlugin({
+      $: "jquery",
+    }),
   ],
   devServer: {
     contentBase: path.resolve(__dirname, "dist"),

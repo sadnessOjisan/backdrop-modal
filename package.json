@@ -48,5 +48,9 @@
       "yarn run format",
       "git add"
     ]
+  },
+  "dependencies": {
+    "hammerjs": "^2.0.8",
+    "jquery": "^3.4.1"
   }
 }
