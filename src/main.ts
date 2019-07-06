@@ -64,17 +64,35 @@ const contents = $("#contents");
 const contentsElm = $("#contents")[0]; // DOM取得、jQuery F**k!!!
 const hammerManager = new Hammer(contentsElm, { pointers: 0 });
 console.log(contents);
+
+let animating = false;
 hammerManager.on("pan", ev => {
+  console.log(animating);
   const { deltaY, isFinal } = ev;
   console.log(ev);
   if (isFinal && deltaY > 0) {
     setTimeout(() => {
       contents.css({ display: "none" });
+      animating = false;
     }, 500);
   } else {
+    console.log(deltaY);
     if (deltaY > 0) {
+      if (animating) {
+        setTimeout(() => {
+          animating = false;
+        }, 500);
+        return;
+      }
       contents.css({ top: "95%", "transition-property": "top" });
     } else {
+      if (isFinal) return;
+      if (animating) {
+        setTimeout(() => {
+          animating = false;
+        }, 500);
+        return;
+      }
       contents.css({ top: "5%", "transition-property": "top" });
     }
   }
