@@ -8,6 +8,11 @@ const contentsElm = $("#contents")[0]; // DOM取得、jQuery F**k!!!
 const hammerManager = new Hammer(contentsElm, { pointers: 0 });
 
 hammerManager.on("pan", ev => {
-  if (ev.center.y < 50) return;
-  contents.css({ top: ev.center.y });
+  console.log(ev);
+  const deltaY = ev.deltaY;
+  if (deltaY > 0) {
+    contents.css({ top: "90%", "transition-property": "top" });
+  } else {
+    contents.css({ top: "50px" });
+  }
 });

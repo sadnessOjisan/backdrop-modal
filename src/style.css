@@ -12,4 +12,7 @@
   right: 10%;
   width: 80%;
   height: 100%;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -o-transition: 0.5s;
 }
