@@ -35,7 +35,7 @@
     "build:local": "BUILD_MODE='development' REACT_APP_ENV=local webpack",
     "build:dev": "BUILD_MODE='development' REACT_APP_ENV=development webpack",
     "build:stg": "BUILD_MODE='production' REACT_APP_ENV=staging webpack",
-    "build:prd": "BUILD_MODE='production' REACT_APP_ENV=production webpack",
+    "build:prd": "cp -r ./src/assets dist & BUILD_MODE='production' REACT_APP_ENV=production webpack",
     "start:local": "cp -r ./src/assets dist & BUILD_MODE='development' REACT_APP_ENV='local' webpack-dev-server",
     "start:dev": "BUILD_MODE='development' REACT_APP_ENV=development webpack-dev-server",
     "start:stg": "BUILD_MODE='production' REACT_APP_ENV='staging' webpack-dev-server",
