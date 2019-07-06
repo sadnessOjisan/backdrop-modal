@@ -13,6 +13,6 @@ hammerManager.on("pan", ev => {
   if (deltaY > 0) {
     contents.css({ top: "90%", "transition-property": "top" });
   } else {
-    contents.css({ top: "50px" });
+    contents.css({ top: "10%", "transition-property": "top" });
   }
 });
