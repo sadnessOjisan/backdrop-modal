@@ -63,20 +63,15 @@ const data = {
 const contents = $("#contents");
 const contentsElm = $("#contents")[0]; // DOM取得、jQuery F**k!!!
 const hammerManager = new Hammer(contentsElm, { pointers: 0 });
-console.log(contents);
 
 let animating = false;
 hammerManager.on("pan", ev => {
-  console.log(animating);
   const { deltaY, isFinal } = ev;
-  console.log(ev);
   if (isFinal && deltaY > 0) {
     setTimeout(() => {
-      contents.css({ display: "none" });
       animating = false;
     }, 500);
   } else {
-    console.log(deltaY);
     if (deltaY > 0) {
       if (animating) {
         setTimeout(() => {
@@ -86,7 +81,12 @@ hammerManager.on("pan", ev => {
       }
       contents.css({ top: "95%", "transition-property": "top" });
     } else {
-      if (isFinal) return;
+      if (isFinal) {
+        // setTimeout(() => {
+        //   contents.css({ display: "none" });
+        // }, 500);
+        return;
+      }
       if (animating) {
         setTimeout(() => {
           animating = false;
@@ -94,6 +94,10 @@ hammerManager.on("pan", ev => {
         return;
       }
       contents.css({ top: "5%", "transition-property": "top" });
+      setTimeout(() => {
+        contents.css({ display: "none" });
+      }, 500);
+      console.log("fieeeeeeeee");
     }
   }
 });
